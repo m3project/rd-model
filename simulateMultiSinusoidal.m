@@ -35,7 +35,7 @@ nconds = size(conds, 1);
 
 ys = nan(nconds, frames);
 
-parfor i=1:nconds
+for i=1:nconds
     
     c = conds(i, :); tf = c(1); sf = c(2);
     
@@ -45,8 +45,8 @@ parfor i=1:nconds
     
     pos = t*speed;
     
-    pos1 = round(pos/spatialReso);
-    pos2 = round((pos + sep)/spatialReso);
+    pos1 = 1 + round(pos/spatialReso);
+    pos2 = 1 + round((pos + sep)/spatialReso);
     
     sExtent = max(pos2);
     

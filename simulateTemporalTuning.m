@@ -2,7 +2,7 @@ function varargout = simulateTemporalTuning(args)
 
 sf = 0.1;
 
-n = 100; % number of spatial frequency points
+tfs = logspace2(1e-1, 40, 100);
 
 sep = 1; acAngle = 2.5; % degs
 
@@ -18,7 +18,7 @@ if nargin, unpackStruct(args); end
 
 makePlot = ~nargout;
 
-tfs = logspace2(1e-1, 40, n);
+
 
 conds = createTrial(tfs, sf);
 
@@ -51,9 +51,11 @@ if makePlot
     
 else
     
-    varargout{1} = [tfs steadState];
+    varargout{1} = tfs;
+        
+    varargout{2} = steadState;
     
-    varargout{2} = fpref;
+    varargout{3} = fpref;
     
 end
 

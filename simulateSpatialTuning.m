@@ -2,11 +2,11 @@ function varargout = simulateSpatialTuning(args)
 
 tf = 8;
 
-n = 100; % number of spatial frequency points
-
 sep = 1; acAngle = 2.5; % degs
 
 duration = 0.5;
+
+sfs = logspace2(1e-3, 1, 100);
 
 [hpf, lpf] = getMantisTemporalFilters();
 
@@ -17,8 +17,6 @@ if nargin, unpackStruct(args); end
 %% body
 
 makePlot = ~nargout;
-
-sfs = logspace2(1e-3, 1, n);
 
 conds = createTrial(tf, sfs);
 
@@ -51,9 +49,11 @@ if makePlot
     
 else
     
-    varargout{1} = [sfs steadState];
+    varargout{1} = sfs;
     
-    varargout{2} = fpref;
+    varargout{2} = steadyState;
+    
+    varargout{3} = fpref;
     
 end
 
