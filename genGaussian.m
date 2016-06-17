@@ -14,7 +14,7 @@ gauss = @gauss_f;
 
     function y = gauss_f(x)
        
-        y = conv(x, imp, 'same');        
+        y = conv(x, imp, 'same');
         
     end
 

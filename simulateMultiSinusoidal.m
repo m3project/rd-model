@@ -27,7 +27,7 @@ frames = round(duration * fps);
 
 sigma = acAngle / 2.34;
 
-[gauss] = genGaussian(sigma, spatialReso);
+[~, imp] = genGaussian(sigma, spatialReso);
 
 %% body
 
@@ -54,7 +54,7 @@ for i=1:nconds
     
     s = sin(2*pi*degs*sf);
     
-    s2 = gauss(s); %#ok<PFBNS>
+    s2 = conv(s, imp, 'same');
     
     sin1 = s2(pos1);
     sin2 = s2(pos2);

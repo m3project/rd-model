@@ -1,4 +1,4 @@
-function fullEnergy = simulateReichardt(input1, input2, hpf, lpf)
+function [fullEnergy, energy1, energy2] = simulateReichardt(input1, input2, hpf, lpf)
 
 % calculate half-phase opponent energy
 
